@@ -192,7 +192,6 @@ export class KBEngineApp
     Update(): void
     {
         KBEngineApp.app.SendTick();
-        this.UpdatePlayerToServer()
     }
 
     private GetLoginappAddr(): string

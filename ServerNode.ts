@@ -48,5 +48,6 @@ export default class ServerNode extends cc.Component {
     }
 
     onDestroy(){
+        KBEEvent.DeregisterObject(this)
     }
 }

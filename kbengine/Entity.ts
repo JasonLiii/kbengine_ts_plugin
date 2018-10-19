@@ -20,9 +20,6 @@ export default class Entity
     id: number;
     className: string;
 
-    parentID: number;
-    parent: Entity;
-
     position: KBEMath.Vector3 = new KBEMath.Vector3(0, 0, 0);
     direction: KBEMath.Vector3 = new KBEMath.Vector3(0, 0, 0);
     entityLastLocalPos = new KBEMath.Vector3(0.0, 0.0, 0.0);
@@ -35,8 +32,6 @@ export default class Entity
 
     cell: EntityCall;
     base: EntityCall;
-
-    Name: string = "wsf";
 
     __init__()
     {
