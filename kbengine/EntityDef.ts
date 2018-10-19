@@ -76,26 +76,6 @@ export class ScriptModule
         }
     }
 
-    async AsyncInit(moduleName: string)
-    {
-        this.name = moduleName;
-        let module: any = undefined;
-        let path: string = "../../kbengine_typescript_plugin/kbengine/Entity";
-        KBEDebug.INFO_MSG("ScriptModule::AsyncInit:try to load script %s.", path);
-        try
-        {
-            module = await import(path);
-            //module = await import("../entities/Account");
-        }
-        catch(e)
-        {
-            KBEDebug.ERROR_MSG("ScriptModule::AsyncInit:can't load(Entity script:%s,error:%s!", moduleName, e);
-        }
-        
-        this.script = module.default;
-        KBEDebug.INFO_MSG("ScriptModule::AsyncInit:load script %s.", this.script);
-    }
-
     GetScriptSetMethod(name: string)
     {
         return this.GetScriptMethod("set_" + name);

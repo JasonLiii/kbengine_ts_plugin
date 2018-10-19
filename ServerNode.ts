@@ -8,14 +8,10 @@ import KBEEvent from "./kbengine/Event";
 
 const {ccclass, property, disallowMultiple,executionOrder} = cc._decorator
 
-export var g_ServerNode:ServerNode=null
 @ccclass
 @disallowMultiple
 export default class ServerNode extends cc.Component {
     onLoad(){
-        g_ServerNode=this
-        if(CC_DEBUG)window["g_ServerNode"]=g_ServerNode
-
         this.initServerApp()
     }
 
@@ -52,9 +48,5 @@ export default class ServerNode extends cc.Component {
     }
 
     onDestroy(){
-        if(g_ServerNode==this){
-            g_ServerNode=null
-            if(CC_DEBUG)window["g_ServerNode"]=null
-        }
     }
 }

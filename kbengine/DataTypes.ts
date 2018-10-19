@@ -120,7 +120,7 @@ export function BuildUINT64(data: number): UINT64
 
 function IsNumber(anyObject: any): boolean
 {
-    return typeof anyObject === "number";
+    return typeof anyObject === "number"||typeof anyObject == 'boolean';
 }
 
 export abstract class DATATYPE_BASE
