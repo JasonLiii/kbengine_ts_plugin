@@ -27,7 +27,7 @@ export default class ServerNode extends cc.Component {
         args.port = 20013;
 
         args.clientType=5
-        KBEngineApp.app.Destroy();
+        KBEngineApp.Destroy();
         KBEngineApp.Create(args)
     }
 

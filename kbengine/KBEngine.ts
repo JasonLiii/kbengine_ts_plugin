@@ -120,11 +120,11 @@ export class KBEngineApp
         return KBEngineApp._app;
     }
 
-    Destroy()
+    static Destroy()
     {
-        if(this.idInterval != undefined)
+        if(KBEngineApp.app.idInterval)
         {
-            clearInterval(this.idInterval);
+            clearInterval(KBEngineApp.app.idInterval);
         }
 
         if(KBEngineApp.app === undefined)
@@ -132,8 +132,8 @@ export class KBEngineApp
             return;
         }
 
-        this.UninstallEvents();
-        this.Reset();
+        KBEngineApp.app.UninstallEvents();
+        KBEngineApp.app.Reset();
         KBEngineApp._app = undefined;
     }
 
