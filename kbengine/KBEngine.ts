@@ -122,14 +122,13 @@ export class KBEngineApp
 
     static Destroy()
     {
-        if(KBEngineApp.app.idInterval)
-        {
-            clearInterval(KBEngineApp.app.idInterval);
-        }
-
         if(KBEngineApp.app === undefined)
         {
             return;
+        }
+        if(KBEngineApp.app.idInterval)
+        {
+            clearInterval(KBEngineApp.app.idInterval);
         }
 
         KBEngineApp.app.UninstallEvents();
