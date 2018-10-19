@@ -1224,16 +1224,16 @@ export class KBEngineApp
             this.entities[eid] = entity;
 
             let entityStream = this.bufferedCreateEntityMessage[eid];
+            entity.__init__();
+
+            if(this.args.isOnInitCallPropertysSetMethods)
+                entity.CallPropertysSetMethods();
+
             if(entityStream !== undefined)
             {
                 this.Client_onUpdatePropertys(entityStream);
                 delete this.bufferedCreateEntityMessage[eid];
             }
-
-            entity.__init__();
-
-            if(this.args.isOnInitCallPropertysSetMethods)
-                entity.CallPropertysSetMethods();
         }
         else
         {
@@ -1348,9 +1348,6 @@ export class KBEngineApp
             
             this.entities[eid] = entity;
 
-            this.Client_onUpdatePropertys(entityStream);
-            delete this.bufferedCreateEntityMessage[eid];
-
             entity.isOnGround = isOnGround > 0;
 
             entity.__init__();
@@ -1359,6 +1356,9 @@ export class KBEngineApp
 
             if(this.args.isOnInitCallPropertysSetMethods)
                 entity.CallPropertysSetMethods();
+
+            this.Client_onUpdatePropertys(entityStream);
+            delete this.bufferedCreateEntityMessage[eid];
         }
         else
         {
