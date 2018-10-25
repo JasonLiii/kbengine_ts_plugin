@@ -36,6 +36,20 @@ export default class MemoryStream
         }
     }
 
+    clear(){
+        this.rpos=this.wpos=0
+        this.buffer=new ArrayBuffer(0)
+    }
+
+    append(datas:ArrayBuffer){
+        let len=datas.byteLength
+        let newBuffer=new Uint8Array(this.wpos+len)
+        newBuffer.set(new Uint8Array(this.buffer),0)
+        newBuffer.set(new Uint8Array(datas),this.wpos)
+        this.buffer=newBuffer.buffer
+        this.wpos+=len
+    }
+
     Space(): number
     {
         return this.buffer.byteLength - this.wpos;
